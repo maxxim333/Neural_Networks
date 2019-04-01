@@ -2,13 +2,13 @@
 This work performs two different types of Neural Networks training and 5-fold CV, each one on three datasets that differ in three of the attributes. It uses 100 iterations with random seeds and after all iterations are completed, it calculates the average of different performance metrics
 
 
-##Usage: 
+#Usage: 
 The only things that needs to be changed are the input and output files directories and WEKA directory. Everything else is done automatically.
 
 ##Data:
 This is a real data of polymorphisms and some of their conservation and biochemical properties. The names of the proteins and the polymorphisms were masked by indexes (2nd and 1st columns, respectively) and random noise was added to each of the columns.
 
-##Goal:
+#Goal:
 Neural Networks will eliminate most of the columns. Each of two files has a common SubstitutionMatrix, SIFT and PolyPhen DIV columns (at least originally, before addition of noise). Columns called "entropy" and "pssm native" are different and come from computation of conservation patterns in homologous or orthologous sequences (non_congruent_known_homologs.arff and non_congruent_known_orthologs.arff, respectively). Both file contain "tag" column in which "1" corresponds to "Pathogenic Mutation" label and "0" to "Neutral Mutation"
 
 The goal is to see whether using the conservation information based on orthologs will yield a better pathogenicity predictor than using information based on homologs. In each iteration, NN are training using:
@@ -17,7 +17,7 @@ The goal is to see whether using the conservation information based on orthologs
 3. SIFT, PolyPhen DIV, substitutionmatrix,  entropy and pssm-native based on orthologues sequences
 (1-3 are repeated using NN with 0 hidden layers and 1 hidden layer and 2 nodes)
 
-##Methods:
+#Methods:
 Training with only values of SIFT and PolyPhen (well-known pathogenicity predictors) is established as baseline. If next predictors will have lower performance than this one, the predictors are worthless, as they are less useful than just using the values of currently known predictors (the goal is to improve the pathogenicity predictions).
 
 Because there are >3x more pathogenic variants than neutral ones, SMOTE is performed during training and neutral variants are oversampled. The exact way the SMOTE is performed is described in commented-out section in the beginning of the script.
