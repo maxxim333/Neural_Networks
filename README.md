@@ -2,7 +2,7 @@
 This work performs two different types of Neural Networks training and 5-fold CV, each one on three datasets that differ in three of the attributes. It uses 100 iterations with random seeds and after all iterations are completed, it calculates the average of different performance metrics
 
 
-#Usage: 
+## Usage: 
 The only things that needs to be changed are the input and output files directories and WEKA directory. Everything else is done automatically.
 
 ##Data:
